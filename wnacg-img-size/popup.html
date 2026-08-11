@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 250px; margin: 0; padding: 12px; font: 13px/1.6 system-ui, sans-serif; }
+  h1 { font-size: 13px; margin: 0 0 10px; }
+  label { display: block; margin: 8px 0 4px; }
+  input[type="text"] { width: 100%; box-sizing: border-box; padding: 4px 6px; }
+  .row { display: flex; align-items: center; gap: 6px; margin: 8px 0; }
+  .row label { margin: 0; }
+  .presets { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .presets button { flex: 1 0 auto; padding: 3px 6px; cursor: pointer; font-size: 12px; }
+  .hint { color: #666; font-size: 11px; margin-top: 10px; }
+  #status { color: #0a7; font-size: 11px; height: 14px; }
+</style>
+</head>
+<body>
+  <h1>漫画图片尺寸</h1>
+
+  <div class="row">
+    <input type="checkbox" id="enabled">
+    <label for="enabled">启用</label>
+  </div>
+
+  <label for="width">竖向模式宽度</label>
+  <input type="text" id="width" placeholder="1000px / 85% / auto">
+  <div class="presets">
+    <button data-w="auto">自适应</button>
+    <button data-w="800px">800</button>
+    <button data-w="1000px">1000</button>
+    <button data-w="1280px">1280</button>
+    <button data-w="1600px">1600</button>
+    <button data-w="85%">85%</button>
+  </div>
+
+  <div class="row">
+    <input type="checkbox" id="upscale">
+    <label for="upscale">小图也放大到该宽度</label>
+  </div>
+
+  <div class="row">
+    <input type="checkbox" id="applyToPageMode">
+    <label for="applyToPageMode">翻页模式也限制宽度</label>
+  </div>
+
+  <div id="status"></div>
+  <div class="hint">支持 px / % / vw；填 auto 表示不干预，交回页面自己的宽度按钮。改完立即生效，无需刷新。</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

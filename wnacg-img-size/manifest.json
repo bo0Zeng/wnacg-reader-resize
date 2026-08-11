@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "漫画阅读器图片尺寸",
+  "version": "1.0.0",
+  "description": "自定义漫画阅读器的默认图片显示宽度（竖向 / 翻页模式）。",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "图片尺寸设置"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.wnacg.com/*",
+        "*://*.wnacg.org/*",
+        "*://*.wnacg01.cc/*",
+        "*://*.wnacg02.cc/*",
+        "*://*.wnacg03.cc/*",
+        "*://*.wnacg05.cc/*",
+        "*://*.wn01.cc/*",
+        "*://*.wn02.cc/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}
